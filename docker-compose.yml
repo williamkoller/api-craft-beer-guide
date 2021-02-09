@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  craft_beer_db:
+    image: postgres:13.1-alpine
+    restart: always
+    container_name: craft_beer_db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - nest_db_data:/var/lib/postgresql/data
+
+volumes:
+  nest_db_data:
