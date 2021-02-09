@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { configDatabaseService } from '@/config/database/config-database.service';
+import { configService } from '@/config/config.service';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(configDatabaseService.getTypeOrmConfig()[0])],
+  imports: [TypeOrmModule.forRoot(configService.getTypeOrmConfig()[0])],
   controllers: [],
   providers: [],
 })
