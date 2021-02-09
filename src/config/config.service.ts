@@ -1,7 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 require('dotenv').config();
 
-class ConfigDatabaseService {
+class ConfigService {
   constructor(private env: { [k: string]: string | undefined }) {}
 
   private getValue(key: string, throwOnMissing = true): string {
@@ -50,13 +50,31 @@ class ConfigDatabaseService {
         keepConnectionAlive: true,
         connectTimeoutMS: 15000,
       },
+      {
+        name: 'seed',
+        type: 'postgres',
+        host: this.getValue('POSTGRES_HOST'),
+        port: parseInt(this.getValue('POSTGRES_PORT'), 0),
+        username: this.getValue('POSTGRES_USER'),
+        password: this.getValue('POSTGRES_PASSWORD'),
+        database: this.getValue('POSTGRES_DATABASE'),
+        logging: JSON.parse(this.getValue('LOGGING')),
+        migrationsTableName: 'seeds',
+        migrations: [
+          `${__dirname}/../seeds/${this.getValue('MODE')}/**/*{.ts,.js}`,
+        ],
+        cli: {
+          migrationsDir: `src/seeds/${this.getValue('MODE')}`,
+        },
+        retryAttempts: 3,
+        retryDelay: 3000,
+        keepConnectionAlive: false,
+      },
     ];
   }
 }
 
-const configDatabaseService = new ConfigDatabaseService(
-  process.env,
-).ensureValues([
+const configService = new ConfigService(process.env).ensureValues([
   'POSTGRES_HOST',
   'POSTGRES_PORT',
   'POSTGRES_USER',
@@ -64,4 +82,4 @@ const configDatabaseService = new ConfigDatabaseService(
   'POSTGRES_DATABASE',
 ]);
 
-export { configDatabaseService };
+export { configService };

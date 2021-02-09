@@ -1,7 +1,7 @@
-import { configDatabaseService } from '@/config/database/config-database.service';
+import { configService } from '@/config/config.service';
 import fs = require('fs');
 
-const [migrations, seed] = configDatabaseService.getTypeOrmConfig();
+const [migrations, seed] = configService.getTypeOrmConfig();
 
 fs.writeFileSync(
   'ormconfig.json',
@@ -10,7 +10,7 @@ fs.writeFileSync(
       {
         ...migrations,
         entities: [`${__dirname}/../**/**.entity{.ts,.js}`],
-        migrations: [`${__dirname}/../migration/**/*{.ts,.js}`],
+        migrations: [`${__dirname}/../migrations/**/*{.ts,.js}`],
       },
       seed,
     ],

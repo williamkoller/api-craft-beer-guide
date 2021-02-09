@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm:drop": "npm run typeorm schema:drop",
-    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/config/orm/ormconfig.ts",
+    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/scripts/ormconfig.ts",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "typeorm:migration:create": "npm run typeorm -- migration:create -n",
     "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
