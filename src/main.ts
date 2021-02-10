@@ -21,6 +21,7 @@ async function bootstrap() {
     .setDescription('API of Craft Beer Guide')
     .setVersion('1.0')
     .addTag('style')
+    .addTag('category')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
