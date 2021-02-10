@@ -13,4 +13,7 @@ export class Style extends BaseEntity {
   @OneToMany(() => Category, (category) => category.style, { eager: true })
   @JoinTable()
   categories: Array<Category>;
+
+  @Column({ type: 'varchar', nullable: true })
+  ref: string;
 }
