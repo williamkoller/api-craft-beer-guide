@@ -32,16 +32,6 @@
     "seed:revert": "npm run typeorm -- migration:revert -c seed",
     "check": "npm-check -s -u"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint 'src/**' --fix"
-    ]
-  },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
     "@nestjs/core": "^7.5.1",
@@ -75,9 +65,7 @@
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "husky": "^5.0.9",
     "jest": "^26.6.3",
-    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "supertest": "^6.0.0",
     "ts-jest": "^26.4.3",
