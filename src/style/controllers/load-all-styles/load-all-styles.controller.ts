@@ -4,12 +4,15 @@ import { Controller, Get } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('style')
-@Controller('style')
+@Controller('styles')
 export class LoadAllStylesController {
   constructor(private readonly loadallStylesService: LoadAllStylesService) {}
 
   @Get()
-  @ApiResponse({ status: 200, description: 'The records were successfully searched.' })
+  @ApiResponse({
+    status: 200,
+    description: 'The records were successfully searched.',
+  })
   async loadAll(): Promise<Array<Style>> {
     return await this.loadallStylesService.loadAll();
   }
