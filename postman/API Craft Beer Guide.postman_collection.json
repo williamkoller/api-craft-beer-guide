@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "f3521cf5-78b4-4f37-8764-56101bb36d2a",
+		"name": "API Craft Beer Guide",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Style",
+			"item": [
+				{
+					"name": "Add Style",
+					"item": [
+						{
+							"name": "Add Style",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"INTERNATIONAL LAGER\",\n    \"description\": \"As Internacional Lager são premium lager para um mercado de massa produzidas na maioria dos países do mundo. Já que foram desenvolvidas a partir de estilos americanos ou europeus, todas têm um caráter bastante uniforme e são altamente divulgadas. Livremente   desenvolvidas a partir das lagers originais tipo Pilsner, com coloridas variações que têm adicionais sabores de maltes que mantêm um grande apelo para a maioria dos paladares. Em muitos países, o estilo será designado pelos seus nomes locais. O uso do termo 'internacional' não significa que estas cervejas são etiquetadas desta forma, ele é mais uma categorização das cervejas semelhantes produzidos em todo o mundo.\",\n    \"categories\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/style",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"style"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load All Styles",
+					"item": [
+						{
+							"name": "Load All Styles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/styles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"styles"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load Style By Name",
+					"item": [
+						{
+							"name": "Load Style By Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/style/La",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"style",
+										"La"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Load All Categories",
+					"item": [
+						{
+							"name": "Load All Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
