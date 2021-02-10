@@ -14,6 +14,7 @@ export class LoadAllCategoriesController {
     status: 200,
     description: 'The records were successfully searched.',
   })
+  @ApiResponse({ status: 404, description: 'No records found.' })
   async loadAll(): Promise<Array<Category>> {
     return await this.loadAllCategoriesService.loadAllCategories();
   }
