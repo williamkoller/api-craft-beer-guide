@@ -1,6 +1,6 @@
 import { LoadAllCategoriesRepository } from '@/category/repositories/load-all-categories/load-all-categories.repository';
 import { Category } from '@/entities/category.entity';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class LoaddAllCategoriesService {
@@ -9,6 +9,10 @@ export class LoaddAllCategoriesService {
   ) {}
 
   async loadAllCategories(): Promise<Array<Category>> {
-    return await this.loadAllCategoriesRepository.loadAll();
+    const categories = await this.loadAllCategoriesRepository.loadAll();
+    if (categories?.length === 0) {
+      throw new NotFoundException('No records found.');
+    }
+    return categories;
   }
 }
