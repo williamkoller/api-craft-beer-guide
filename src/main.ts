@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { AppModule } from '@/app.module';
+import { AppModule } from '@/app/app.module';
 import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
 import * as rateLimit from 'express-rate-limit';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
