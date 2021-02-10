@@ -11,6 +11,9 @@ import { LoadAllStylesController } from '@/style/controllers/load-all-styles/loa
 import { LoadStyleByNameRepository } from '@/style/repositories/load-style-by-name/load-style-by-name.repository';
 import { LoadStyleByNameService } from '@/style/services/load-style-by-name/load-style-by-name.service';
 import { LoadStyleByNameController } from '@/style/controllers/load-style-by-name/load-style-by-name.controller';
+import { UpdateStyleRepository } from '@/style/repositories/update-style/update-style-repository';
+import { UpdateStyleService } from '@/style/services/update-style/update-style.service';
+import { UpdateStyleController } from '@/style/controllers/update-style/update-style.controller';
 
 @Module({
   imports: [
@@ -20,13 +23,20 @@ import { LoadStyleByNameController } from '@/style/controllers/load-style-by-nam
       AddStyleRepository,
       LoadAllStylesRepository,
       LoadStyleByNameRepository,
+      UpdateStyleRepository,
     ]),
   ],
-  providers: [AddStyleService, LoadAllStylesService, LoadStyleByNameService],
+  providers: [
+    AddStyleService,
+    LoadAllStylesService,
+    LoadStyleByNameService,
+    UpdateStyleService,
+  ],
   controllers: [
     AddStyleController,
     LoadAllStylesController,
     LoadStyleByNameController,
+    UpdateStyleController,
   ],
 })
 export class StyleModule {}
