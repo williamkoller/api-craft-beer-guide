@@ -14,6 +14,10 @@ export class AddStyleController {
     status: 201,
     description: 'The record has been successfully created.',
   })
+  @ApiResponse({
+    status: 409,
+    description: 'There is already a record with a name for this style.',
+  })
   async add(@Body() addStyleDto: AddStyleDto): Promise<Style> {
     return await this.addStyleService.addStyle(addStyleDto);
   }

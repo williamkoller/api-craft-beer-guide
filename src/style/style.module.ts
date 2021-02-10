@@ -8,10 +8,25 @@ import { AddStyleController } from '@/style/controllers/add-style/add-style.cont
 import { LoadAllStylesRepository } from '@/style/repositories/load-all-styles/load-all-styles.repository';
 import { LoadAllStylesService } from '@/style/services/load-all-styles/load-all-styles.service';
 import { LoadAllStylesController } from '@/style/controllers/load-all-styles/load-all-styles.controller';
+import { LoadStyleByNameRepository } from '@/style/repositories/load-style-by-name/load-style-by-name.repository';
+import { LoadStyleByNameService } from '@/style/services/load-style-by-name/load-style-by-name.service';
+import { LoadStyleByNameController } from '@/style/controllers/load-style-by-name/load-style-by-name.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Style, Category, AddStyleRepository, LoadAllStylesRepository])],
-  providers: [AddStyleService, LoadAllStylesService],
-  controllers: [AddStyleController, LoadAllStylesController],
+  imports: [
+    TypeOrmModule.forFeature([
+      Style,
+      Category,
+      AddStyleRepository,
+      LoadAllStylesRepository,
+      LoadStyleByNameRepository,
+    ]),
+  ],
+  providers: [AddStyleService, LoadAllStylesService, LoadStyleByNameService],
+  controllers: [
+    AddStyleController,
+    LoadAllStylesController,
+    LoadStyleByNameController,
+  ],
 })
 export class StyleModule {}
