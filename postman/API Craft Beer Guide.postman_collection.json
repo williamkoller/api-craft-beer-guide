@@ -18,7 +18,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"INTERNATIONAL LAGER\",\n    \"description\": \"As Internacional Lager são premium lager para um mercado de massa produzidas na maioria dos países do mundo. Já que foram desenvolvidas a partir de estilos americanos ou europeus, todas têm um caráter bastante uniforme e são altamente divulgadas. Livremente   desenvolvidas a partir das lagers originais tipo Pilsner, com coloridas variações que têm adicionais sabores de maltes que mantêm um grande apelo para a maioria dos paladares. Em muitos países, o estilo será designado pelos seus nomes locais. O uso do termo 'internacional' não significa que estas cervejas são etiquetadas desta forma, ele é mais uma categorização das cervejas semelhantes produzidos em todo o mundo.\",\n    \"categories\": []\n}",
+									"raw": "{\n    \"name\": \"CZECH LAGER\",\n    \"description\": \"As cervejas tchecas são geralmente divididas pela densidade/gravidade (Draft, Lager, Special) e cor (Pale, Amber, Dark). Os nomes tchecos para estas categorias são Svetle (Pale), Polotmavé (Amber) e tmavé (Dark). As classes de densidade (gravidade) são výčepní (Draft, de 7-10 ° P), Lezak (Lager 11-12 ° P) e speciální (Special, 13 ° P +). Pivo é, naturalmente, a palavra Tcheca que significa cerveja. Classe divisão de densidade (gravidade) é semelhante para os grupos alemães Schankbier, Vollbier e Starkbier, embora com diferentes gamas. As cervejas tchecas dentro dessas classes são muitas vezes referidas pela sua densidade (gravidade). Muitas vezes, há variações nos agrupamentos de cor-gravidade, especialmente dentro da classe speciální. O Guia de Estilos BJCP combina algumas dessas classes, enquanto que outras cervejas no mercado tcheco não são descritas (como o Czech Porter forte). Isso não significa dizer que as categorias abaixo cobrem completamente todas as cervejas checas, eles são simplesmente uma forma de agrupar alguns dos estilos mais comuns para fins de avaliação. As lager tchecas diferem, geralmente, dos lagers alemãs e outras lagers ocidentais porque as lagers alemãs são quase sempre completamente atenuadas, enquanto as lagers tchecas podem ter uma pequena quantidade de extrato fermentado residual que é colocada na cerveja pronta. Isso ajuda a fornecer uma densidade/gravidade ligeiramente mais elevada final (e, portanto, uma aparente atenuação ligeiramente inferior), um corpo e uma sensação de boca ligeiramente mais cheios e um perfil de sabor mais rico e mais complexo do que em cervejas equivalentes em cor e grau. As lagers alemãs tendem a ter um perfil de fermentação mais limpo, enquanto que as lagers tchecas tendem a fermentar em temperaturas mais baixas (7-10 ° C) e por mais tempo, e pode ter uma quantidade pequena, quase imperceptível de diacetil (perto do limiar de percepção) que muitas vezes é percebido mais como um arredondamento do que abertamente como aroma e sabor [diacetil em nível significativo lembra amanteigado e é um defeito]. As cepas de leveduras lager tchecas não são sempre tão limpas e atenuativas como as cepas alemãs, ajudando a alcançar uma maior densidade (gravidade) final (juntamente com métodos de maceração a frio e fermentação). As lagers tchecas são tradicionalmente feitas com macerado de decocção (muitas vezes dupla decocção), mesmo com maltes modernos, enquanto a maioria dos modernos lagers alemãs são feitos de macerados por infusão ou infusão escalonada. Estas diferenças caracterizam a riqueza do perfil de sabor e sensação na boca que distingue as lagers checos.\",\n    \"categories\": [],\n    \"ref\": \"3\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -77,6 +77,84 @@
 									"path": [
 										"style",
 										"La"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update Style",
+					"item": [
+						{
+							"name": "Update Style",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ref\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/style/69929f37-342e-4138-805f-e36e66b9cbe3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"style",
+										"69929f37-342e-4138-805f-e36e66b9cbe3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete Style",
+					"item": [
+						{
+							"name": "Delete Style",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/style/894a7419-e32b-4935-a5c1-46faf9998410",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"style",
+										"894a7419-e32b-4935-a5c1-46faf9998410"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load Style By Id",
+					"item": [
+						{
+							"name": "Load Style By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/styleId/b1ce5362-4483-47a4-b77a-8ba3ad749df",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"styleId",
+										"b1ce5362-4483-47a4-b77a-8ba3ad749df"
 									]
 								}
 							},
