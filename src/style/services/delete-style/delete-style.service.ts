@@ -10,7 +10,7 @@ export class DeleteStyleService {
     private readonly loadStyleByIdRepository: LoadStyleByIdRepository,
   ) {}
   async deleteStyle(id: string): Promise<ReturnResponseMessageType> {
-    const styles = await this.loadStyleByIdRepository.loadById(id);
+    const styles = await this.loadStyleByIdRepository.loadStyleById(id);
     if (!styles) {
       throw new NotFoundException('Style not found.');
     }

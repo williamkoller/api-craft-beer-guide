@@ -18,6 +18,8 @@ import { DeleteStyleRepository } from '@/style/repositories/delete-style/delete-
 import { DeleteStyleService } from '@/style/services/delete-style/delete-style.service';
 import { DeleteStyleController } from '@/style/controllers/delete-style/delete-style.controller';
 import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
+import { LoadStyleByIdService } from '@/style/services/load-style-by-id/load-style-by-id.service';
+import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/load-style-by-id.controller';
 
 @Module({
   imports: [
@@ -38,6 +40,7 @@ import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/l
     LoadStyleByNameService,
     UpdateStyleService,
     DeleteStyleService,
+    LoadStyleByIdService,
   ],
   controllers: [
     AddStyleController,
@@ -45,6 +48,7 @@ import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/l
     LoadStyleByNameController,
     UpdateStyleController,
     DeleteStyleController,
+    LoadStyleByIdController,
   ],
 })
 export class StyleModule {}
