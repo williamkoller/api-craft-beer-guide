@@ -1,7 +1,13 @@
 import { UpdateStyleDto } from '@/style/dtos/update-style/update-style.dto';
 import { UpdateStyleService } from '@/style/services/update-style/update-style.service';
 import { ReturnResponseMessageType } from '@/style/types/return-message/return-response-message.type';
-import { Body, Controller, Param, Put } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Param,
+  Put,
+} from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('style')
@@ -19,6 +25,10 @@ export class UpdateStyleController {
     @Param('id') id: string,
     @Body() updateStyleDto: UpdateStyleDto,
   ): Promise<ReturnResponseMessageType> {
-    return await this.updateStyleService.updateStyle(id, updateStyleDto);
+    try {
+      return await this.updateStyleService.updateStyle(id, updateStyleDto);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 }
