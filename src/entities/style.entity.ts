@@ -4,10 +4,10 @@ import { BaseEntity } from '@/entities/base-entity';
 
 @Entity('styles')
 export class Style extends BaseEntity {
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar' })
   name: string;
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   description: string;
 
   @OneToMany(() => Category, (category) => category.style, {
@@ -17,6 +17,6 @@ export class Style extends BaseEntity {
   @JoinTable()
   categories: Array<Category>;
 
-  @Column({ type: 'varchar', nullable: true })
-  ref?: string;
+  @Column({ type: 'varchar' })
+  ref: string;
 }

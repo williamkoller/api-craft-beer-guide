@@ -5,6 +5,11 @@ export class AddCategoryDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
+  name: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty({ message: 'This field cannot be empty.' })
   overallImpression: string;
 
   @ApiProperty()
@@ -55,7 +60,6 @@ export class AddCategoryDto {
 
   @ApiProperty()
   @IsString()
-  @IsArray()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   commercialExamples: Array<string>;
 
@@ -68,5 +72,10 @@ export class AddCategoryDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
-  styleId: string;
+  style: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty({ message: 'This field cannot be empty.' })
+  ref: string;
 }

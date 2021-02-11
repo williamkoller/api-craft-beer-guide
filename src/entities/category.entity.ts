@@ -5,6 +5,9 @@ import { BaseEntity } from '@/entities/base-entity';
 @Entity('categories')
 export class Category extends BaseEntity {
   @Column({ type: 'varchar' })
+  name: string;
+
+  @Column({ type: 'varchar' })
   overallImpression: string;
 
   @Column({ type: 'varchar' })
@@ -30,20 +33,23 @@ export class Category extends BaseEntity {
 
   @Column({ type: 'jsonb' })
   vitalStatistics: {
-    og: number;
-    fg: number;
-    srm: number;
-    ibu: number;
-    abv: number;
+    og: string;
+    fg: string;
+    srm: string;
+    ibu: string;
+    abv: string;
   };
 
-  @Column({ type: 'simple-array', array: true })
+  @Column('text', { array: true })
   commercialExamples: Array<string>;
 
-  @Column({ type: 'simple-array', array: true })
+  @Column('text', { array: true })
   tags: Array<string>;
 
   @ManyToOne(() => Style, (style) => style.categories)
   @JoinTable()
   style: Style;
+
+  @Column({ type: 'varchar' })
+  ref: string;
 }

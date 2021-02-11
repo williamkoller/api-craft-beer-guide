@@ -1,7 +1,7 @@
 import { AddCategoryDto } from '@/category/dtos/add-categroy/add-category.dto';
 import { AddCategoryService } from '@/category/services/add-category/add-category.service';
 import { Category } from '@/entities/category.entity';
-import { Body, Controller, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('category')
@@ -15,6 +15,10 @@ export class AddCategoryController {
     description: 'The record has been successfully created.',
   })
   async addCategory(@Body() addCategoryDto: AddCategoryDto): Promise<Category> {
-    return await this.addCategoryService.add(addCategoryDto);
+    try {
+      return await this.addCategoryService.add(addCategoryDto);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 }
