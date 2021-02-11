@@ -1,6 +1,6 @@
 import { Style } from '@/entities/style.entity';
 import { LoadStyleByIdService } from '@/style/services/load-style-by-id/load-style-by-id.service';
-import { Controller, Get, Param } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('style')
@@ -18,6 +18,10 @@ export class LoadStyleByIdController {
     description: 'Style not found.',
   })
   async loadById(@Param('id') id: string): Promise<Style> {
-    return await this.loadStyleByIdService.loadStyleById(id);
+    try {
+      return await this.loadStyleByIdService.loadStyleById(id);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 }
