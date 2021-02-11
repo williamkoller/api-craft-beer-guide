@@ -1,12 +1,12 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class CreateTablesBaseEntityAndStylesAndCategory1612897114680
+export class CreateTablesStyleAndCategory1613011297564
   implements MigrationInterface {
-  name = 'CreateTablesBaseEntityAndStylesAndCategory1612897114680';
+  name = 'CreateTablesStyleAndCategory1613011297564';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `CREATE TABLE "styles" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "name" character varying NOT NULL, "description" text NOT NULL, CONSTRAINT "PK_1f22d2e5045f508c5fce0eb6e86" PRIMARY KEY ("id"))`,
+      `CREATE TABLE "styles" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "name" character varying NOT NULL, "description" text NOT NULL, "ref" character varying, CONSTRAINT "PK_1f22d2e5045f508c5fce0eb6e86" PRIMARY KEY ("id"))`,
     );
     await queryRunner.query(
       `CREATE TABLE "categories" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP, "overallImpression" character varying NOT NULL, "aroma" character varying NOT NULL, "appearance" character varying NOT NULL, "mouthFelling" character varying NOT NULL, "comments" character varying NOT NULL, "history" character varying NOT NULL, "characteristicIngredients" character varying NOT NULL, "styleComparison" character varying NOT NULL, "vitalStatistics" jsonb NOT NULL, "commercialExamples" text array NOT NULL, "tags" text array NOT NULL, "styleId" uuid, CONSTRAINT "PK_24dbc6126a28ff948da33e97d3b" PRIMARY KEY ("id"))`,
