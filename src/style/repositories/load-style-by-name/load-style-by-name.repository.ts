@@ -5,7 +5,7 @@ import { EntityRepository, Repository } from 'typeorm';
 export class LoadStyleByNameRepository extends Repository<Style> {
   async loadStyleByName(name: string): Promise<Array<Style>> {
     return await this.createQueryBuilder('styles')
-      .where('styles.name ilike :name', { name: `%${name}%` })
+      .where('(styles.name ilike (:name))', { name: `%${name}%` })
       .getMany();
   }
 }

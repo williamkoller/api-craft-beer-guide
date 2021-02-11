@@ -14,6 +14,10 @@ import { LoadStyleByNameController } from '@/style/controllers/load-style-by-nam
 import { UpdateStyleRepository } from '@/style/repositories/update-style/update-style-repository';
 import { UpdateStyleService } from '@/style/services/update-style/update-style.service';
 import { UpdateStyleController } from '@/style/controllers/update-style/update-style.controller';
+import { DeleteStyleRepository } from '@/style/repositories/delete-style/delete-style.repository';
+import { DeleteStyleService } from '@/style/services/delete-style/delete-style.service';
+import { DeleteStyleController } from '@/style/controllers/delete-style/delete-style.controller';
+import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
 
 @Module({
   imports: [
@@ -23,7 +27,9 @@ import { UpdateStyleController } from '@/style/controllers/update-style/update-s
       AddStyleRepository,
       LoadAllStylesRepository,
       LoadStyleByNameRepository,
+      LoadStyleByIdRepository,
       UpdateStyleRepository,
+      DeleteStyleRepository,
     ]),
   ],
   providers: [
@@ -31,12 +37,14 @@ import { UpdateStyleController } from '@/style/controllers/update-style/update-s
     LoadAllStylesService,
     LoadStyleByNameService,
     UpdateStyleService,
+    DeleteStyleService,
   ],
   controllers: [
     AddStyleController,
     LoadAllStylesController,
     LoadStyleByNameController,
     UpdateStyleController,
+    DeleteStyleController,
   ],
 })
 export class StyleModule {}
