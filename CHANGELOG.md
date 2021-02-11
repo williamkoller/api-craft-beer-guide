@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ## Added
 
 - Initial Project
-- Add Docker, docker-compose, PostgreSQL
+- Add Docker, docker-compose and PostgreSQL
 - Add Configuration TypeORM
 - Add migrations with tables Styles and Categories
 - Add StyleModule
