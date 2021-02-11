@@ -7,7 +7,7 @@ export class DeleteStyleRepository extends Repository<Style> {
   async deleteStyle(id: string): Promise<ReturnResponseMessageType> {
     await this.delete(id);
     return {
-      message: 'Style deleted with succefully',
+      message: 'Style deleted with successfully',
     };
   }
 }
