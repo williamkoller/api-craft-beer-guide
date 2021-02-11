@@ -20,5 +20,5 @@ export class AddStyleDto {
 
   @ApiProperty()
   @IsOptional()
-  ref?: string;
+  ref: string;
 }

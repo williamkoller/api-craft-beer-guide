@@ -78,4 +78,9 @@ export class AddCategoryDto {
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   ref: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty({ message: 'This field cannot be empty.' })
+  flavor: string;
 }

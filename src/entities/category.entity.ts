@@ -52,4 +52,7 @@ export class Category extends BaseEntity {
 
   @Column({ type: 'varchar' })
   ref: string;
+
+  @Column({ type: 'varchar' })
+  flavor: string;
 }
