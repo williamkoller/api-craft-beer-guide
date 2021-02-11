@@ -10,7 +10,11 @@ export class UpdateStyleController {
   constructor(private readonly updateStyleService: UpdateStyleService) {}
 
   @Put(':id')
-  @ApiResponse({ status: 200, description: 'Style updated successfully.' })
+  @ApiResponse({
+    status: 200,
+    description: 'Style updated successfully.',
+    type: [UpdateStyleDto],
+  })
   async update(
     @Param('id') id: string,
     @Body() updateStyleDto: UpdateStyleDto,
