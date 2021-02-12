@@ -49,8 +49,10 @@ class ConfigService {
         retryDelay: 3000,
         keepConnectionAlive: true,
         connectTimeoutMS: 15000,
+        extra: {
+          ssl: true,
+        },
         url: this.getValue('DATABASE_URL'),
-        ssl: true,
       },
       {
         name: 'seed',
@@ -71,8 +73,10 @@ class ConfigService {
         retryAttempts: 3,
         retryDelay: 3000,
         keepConnectionAlive: false,
+        extra: {
+          ssl: true,
+        },
         url: this.getValue('DATABASE_URL'),
-        ssl: true,
       },
     ];
   }
