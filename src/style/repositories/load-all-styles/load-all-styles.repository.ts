@@ -24,12 +24,15 @@ export class LoadAllStylesRepository {
 
     const offSet = this.paginationService.calculateOffset(page, limit);
 
-    const query = this.loadAllStylesRepository.createQueryBuilder('styles');
+    const query = this.loadAllStylesRepository
+      .createQueryBuilder('styles')
+      .innerJoinAndSelect('styles.categories', 'categories')
+      .innerJoinAndSelect('categories.style', 'style');
 
     if (search) {
-      query.where('styles.name ilike : name', { name: `%${search}%` });
+      query.andWhere('styles.name ilike : name', { name: `%${search}%` });
     }
-    query.orderBy('styles.createdAt', 'DESC').skip(offSet).take(limit);
+    query.orderBy('styles.ref', 'ASC').skip(offSet).take(limit);
 
     const [report, totalCount] = await query.getManyAndCount();
 
