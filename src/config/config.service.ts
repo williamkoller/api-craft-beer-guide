@@ -49,12 +49,6 @@ class ConfigService {
         retryDelay: 3000,
         keepConnectionAlive: true,
         connectTimeoutMS: 15000,
-        url: this.getValue('DATABASE_PROD'),
-        extra: {
-          ssl: {
-            rejectUnauthorized: false,
-          },
-        },
       },
       {
         name: 'seed',
@@ -75,7 +69,6 @@ class ConfigService {
         retryAttempts: 3,
         retryDelay: 3000,
         keepConnectionAlive: false,
-        url: this.getValue('DATABASE_PROD'),
       },
     ];
   }
@@ -87,7 +80,6 @@ const configService = new ConfigService(process.env).ensureValues([
   'POSTGRES_USER',
   'POSTGRES_PASSWORD',
   'POSTGRES_DATABASE',
-  'DATABASE_PROD',
 ]);
 
 export { configService };
