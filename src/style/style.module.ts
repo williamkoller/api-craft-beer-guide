@@ -1,5 +1,5 @@
 import { Style } from '@/entities/style.entity';
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AddStyleRepository } from '@/style/repositories/add-style/add-style.repository';
 import { Category } from '@/entities/category.entity';
@@ -20,6 +20,8 @@ import { DeleteStyleController } from '@/style/controllers/delete-style/delete-s
 import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
 import { LoadStyleByIdService } from '@/style/services/load-style-by-id/load-style-by-id.service';
 import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/load-style-by-id.controller';
+import { PaginationService } from '@/shared/pagination/services/pagination.service';
+import { CategoryModule } from '@/category/category.module';
 
 @Module({
   imports: [
@@ -27,12 +29,12 @@ import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/lo
       Style,
       Category,
       AddStyleRepository,
-      LoadAllStylesRepository,
       LoadStyleByNameRepository,
       LoadStyleByIdRepository,
       UpdateStyleRepository,
       DeleteStyleRepository,
     ]),
+    forwardRef(() => CategoryModule),
   ],
   providers: [
     AddStyleService,
@@ -41,6 +43,8 @@ import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/lo
     UpdateStyleService,
     DeleteStyleService,
     LoadStyleByIdService,
+    PaginationService,
+    LoadAllStylesRepository,
   ],
   controllers: [
     AddStyleController,

@@ -5,6 +5,12 @@ import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
 import * as rateLimit from 'express-rate-limit';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+const key = 'fetch';
+// tslint:disable-next-line: no-var-requires
+global[key] = require('node-fetch');
+
+declare const module: any;
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useGlobalInterceptors(new LoggingInterceptor());
@@ -26,5 +32,10 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
   await app.listen(process.env.PORT);
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
 }
 bootstrap();

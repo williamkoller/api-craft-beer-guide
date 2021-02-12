@@ -1,6 +1,8 @@
-import { Style } from '@/entities/style.entity';
 import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { LoadAllStylesRepository } from '@/style/repositories/load-all-styles/load-all-styles.repository';
+import { FilterStyleDto } from '@/style/dtos/filter-style/filter-style.dto.ts';
+import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.intercafe';
+import { Style } from '@/entities/style.entity';
 
 @Injectable()
 export class LoadAllStylesService {
@@ -8,9 +10,13 @@ export class LoadAllStylesService {
     private readonly loadAllStylesRepository: LoadAllStylesRepository,
   ) {}
 
-  async loadAll(): Promise<Array<Style>> {
-    const styles = await this.loadAllStylesRepository.loadAllStyles();
-    if (styles?.length === 0) {
+  async loadAll(
+    filterStyleDto: FilterStyleDto,
+  ): Promise<ResultWithPagination<Array<Style>>> {
+    const styles = await this.loadAllStylesRepository.loadAllStyles(
+      filterStyleDto,
+    );
+    if (!styles) {
       throw new NotAcceptableException('No records found.');
     }
     return styles;
