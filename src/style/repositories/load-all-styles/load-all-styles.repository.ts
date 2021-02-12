@@ -30,7 +30,7 @@ export class LoadAllStylesRepository {
       .innerJoinAndSelect('categories.style', 'style');
 
     if (search) {
-      query.andWhere('styles.name ilike : name', { name: `%${search}%` });
+      query.andWhere('styles.name ilike :name', { name: `%${search}%` });
     }
     query.orderBy('styles.ref', 'ASC').skip(offSet).take(limit);
 
