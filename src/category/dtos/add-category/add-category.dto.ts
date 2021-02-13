@@ -1,3 +1,4 @@
+import { Style } from '@/entities/style.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsNotEmpty, IsObject, IsString } from 'class-validator';
 
@@ -51,11 +52,11 @@ export class AddCategoryDto {
   @IsObject()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   vitalStatistics: {
-    og: number;
-    fg: number;
-    srm: number;
-    ibu: number;
-    abv: number;
+    og: string;
+    fg: string;
+    srm: string;
+    ibu: string;
+    abv: string;
   };
 
   @ApiProperty()
@@ -72,7 +73,7 @@ export class AddCategoryDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
-  style: string;
+  style: Style;
 
   @ApiProperty()
   @IsString()

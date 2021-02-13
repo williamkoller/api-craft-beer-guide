@@ -1,4 +1,4 @@
-import { AddCategoryDto } from '@/category/dtos/add-categroy/add-category.dto';
+import { AddCategoryDto } from '@/category/dtos/add-category/add-category.dto';
 import { Category } from '@/entities/category.entity';
 import { validateOrReject } from 'class-validator';
 import { EntityRepository, Repository } from 'typeorm';

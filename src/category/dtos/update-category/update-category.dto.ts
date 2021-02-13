@@ -1,3 +1,4 @@
+import { Style } from '@/entities/style.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsObject, IsOptional, IsString } from 'class-validator';
 
@@ -5,82 +6,82 @@ export class UpdateCategoryDto {
   @ApiProperty()
   @IsString()
   @IsOptional()
-  name: string;
+  name?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  overallImpression: string;
+  overallImpression?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  aroma: string;
+  aroma?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  appearance: string;
+  appearance?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  mouthFelling: string;
+  mouthFelling?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  comments: string;
+  comments?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  history: string;
+  history?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  characteristicIngredients: string;
+  characteristicIngredients?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  styleComparison: string;
+  styleComparison?: string;
 
   @ApiProperty()
   @IsObject()
   @IsOptional()
-  vitalStatistics: {
-    og: number;
-    fg: number;
-    srm: number;
-    ibu: number;
-    abv: number;
+  vitalStatistics?: {
+    og?: string;
+    fg?: string;
+    srm?: string;
+    ibu?: string;
+    abv?: string;
   };
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  commercialExamples: Array<string>;
+  commercialExamples?: Array<string>;
 
   @ApiProperty()
   @IsString()
   @IsArray()
   @IsOptional()
-  tags: Array<string>;
+  tags?: Array<string>;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  style: string;
+  style?: Style;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  ref: string;
+  ref?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  flavor: string;
+  flavor?: string;
 }

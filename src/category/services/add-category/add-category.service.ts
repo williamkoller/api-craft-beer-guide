@@ -1,4 +1,4 @@
-import { AddCategoryDto } from '@/category/dtos/add-categroy/add-category.dto';
+import { AddCategoryDto } from '@/category/dtos/add-category/add-category.dto';
 import { AddCategoryRepository } from '@/category/repositories/add-category/add-category.repository';
 import { LoadCategoryByNameRepository } from '@/category/repositories/load-category-by-name/load-category-by-name.repository';
 import { Category } from '@/entities/category.entity';

@@ -15,6 +15,7 @@ import { LoadCategoryByIdService } from '@/category/services/load-category-by-id
 import { LoadCategoryByIdController } from '@/category/controllers/load-category-by-id/load-category-by-id.controller';
 import { LoadCategoryByNameService } from '@/category/services/load-category-by-name/load-categopry-by-name.service';
 import { LoadCategoryByNameController } from '@/category/controllers/load-category-by-name/load-category-by-name.controller';
+import { UpdateCategoryRepository } from '@/category/repositories/update-category/update-category.repository';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { LoadCategoryByNameController } from '@/category/controllers/load-catego
       AddCategoryRepository,
       LoadCategoryByNameRepository,
       LoadCategoryByIdRepository,
+      UpdateCategoryRepository,
     ]),
   ],
   providers: [

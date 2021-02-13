@@ -1,4 +1,4 @@
-import { AddCategoryDto } from '@/category/dtos/add-categroy/add-category.dto';
+import { AddCategoryDto } from '@/category/dtos/add-category/add-category.dto';
 import { AddCategoryService } from '@/category/services/add-category/add-category.service';
 import { Category } from '@/entities/category.entity';
 import { Body, Controller, Post } from '@nestjs/common';
