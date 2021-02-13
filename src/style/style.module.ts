@@ -14,9 +14,6 @@ import { LoadStyleByNameController } from '@/style/controllers/load-style-by-nam
 import { UpdateStyleRepository } from '@/style/repositories/update-style/update-style-repository';
 import { UpdateStyleService } from '@/style/services/update-style/update-style.service';
 import { UpdateStyleController } from '@/style/controllers/update-style/update-style.controller';
-import { DeleteStyleRepository } from '@/style/repositories/delete-style/delete-style.repository';
-import { DeleteStyleService } from '@/style/services/delete-style/delete-style.service';
-import { DeleteStyleController } from '@/style/controllers/delete-style/delete-style.controller';
 import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
 import { LoadStyleByIdService } from '@/style/services/load-style-by-id/load-style-by-id.service';
 import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/load-style-by-id.controller';
@@ -33,7 +30,6 @@ import { CategoryModule } from '@/category/category.module';
       LoadStyleByNameRepository,
       LoadStyleByIdRepository,
       UpdateStyleRepository,
-      DeleteStyleRepository,
     ]),
     forwardRef(() => CategoryModule),
   ],
@@ -42,7 +38,6 @@ import { CategoryModule } from '@/category/category.module';
     LoadAllStylesService,
     LoadStyleByNameService,
     UpdateStyleService,
-    DeleteStyleService,
     LoadStyleByIdService,
     CalculateOffSetService,
     LoadPaginateObjectService,
@@ -53,7 +48,6 @@ import { CategoryModule } from '@/category/category.module';
     LoadAllStylesController,
     LoadStyleByNameController,
     UpdateStyleController,
-    DeleteStyleController,
     LoadStyleByIdController,
   ],
 })
