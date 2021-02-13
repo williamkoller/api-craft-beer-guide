@@ -25,7 +25,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Sample Craft Beer Guide')
     .setDescription('API of Craft Beer Guide')
-    .setVersion('0.0.1')
+    .setVersion('0.0.2')
     .addTag('style')
     .addTag('category')
     .build();
