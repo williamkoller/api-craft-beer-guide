@@ -10,6 +10,9 @@ import { AddCategoryController } from '@/category/controllers/add-category/add-c
 import { LoadCategoryByNameRepository } from '@/category/repositories/load-category-by-name/load-category-by-name.repository';
 import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
 import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
+import { LoadCategoryByIdRepository } from '@/category/repositories/load-category-by-id/load-category-by-id.repository';
+import { LoadCategoryByIdService } from '@/category/services/load-category-by-id/load-category-by-id.service';
+import { LoadCategoryByIdController } from '@/category/controllers/load-category-by-id/load-category-by-id.controller';
 
 @Module({
   imports: [
@@ -17,6 +20,7 @@ import { LoadPaginateObjectService } from '@/shared/pagination/services/load-pag
       Category,
       AddCategoryRepository,
       LoadCategoryByNameRepository,
+      LoadCategoryByIdRepository,
     ]),
   ],
   providers: [
@@ -25,7 +29,12 @@ import { LoadPaginateObjectService } from '@/shared/pagination/services/load-pag
     LoadAllCategoriesRepository,
     LoadPaginateObjectService,
     CalculateOffSetService,
+    LoadCategoryByIdService,
   ],
-  controllers: [LoadAllCategoriesController, AddCategoryController],
+  controllers: [
+    LoadAllCategoriesController,
+    AddCategoryController,
+    LoadCategoryByIdController,
+  ],
 })
 export class CategoryModule {}
