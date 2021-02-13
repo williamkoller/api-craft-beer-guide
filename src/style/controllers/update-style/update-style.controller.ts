@@ -1,6 +1,6 @@
 import { UpdateStyleDto } from '@/style/dtos/update-style/update-style.dto';
 import { UpdateStyleService } from '@/style/services/update-style/update-style.service';
-import { ReturnResponseMessageType } from '@/style/types/return-message/return-response-message.type';
+import { ReturnResponseMessageType } from '@/utils/types/return-message/return-response-message.type';
 import {
   BadRequestException,
   Body,

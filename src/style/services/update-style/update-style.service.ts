@@ -1,7 +1,7 @@
 import { UpdateStyleDto } from '@/style/dtos/update-style/update-style.dto';
 import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
 import { UpdateStyleRepository } from '@/style/repositories/update-style/update-style-repository';
-import { ReturnResponseMessageType } from '@/style/types/return-message/return-response-message.type';
+import { ReturnResponseMessageType } from '@/utils/types/return-message/return-response-message.type';
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()

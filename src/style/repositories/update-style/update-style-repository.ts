@@ -1,6 +1,6 @@
 import { Style } from '@/entities/style.entity';
 import { UpdateStyleDto } from '@/style/dtos/update-style/update-style.dto';
-import { ReturnResponseMessageType } from '@/style/types/return-message/return-response-message.type';
+import { ReturnResponseMessageType } from '@/utils/types/return-message/return-response-message.type';
 import { EntityRepository, Repository } from 'typeorm';
 
 @EntityRepository(Style)

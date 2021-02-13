@@ -1,5 +1,5 @@
 import { DeleteStyleService } from '@/style/services/delete-style/delete-style.service';
-import { ReturnResponseMessageType } from '@/style/types/return-message/return-response-message.type';
+import { ReturnResponseMessageType } from '@/utils/types/return-message/return-response-message.type';
 import { BadRequestException, Controller, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
