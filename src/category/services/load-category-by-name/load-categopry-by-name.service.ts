@@ -1,6 +1,6 @@
 import { LoadCategoryByNameRepository } from '@/category/repositories/load-category-by-name/load-category-by-name.repository';
 import { Category } from '@/entities/category.entity';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class LoadCategoryByNameService {
@@ -9,6 +9,12 @@ export class LoadCategoryByNameService {
   ) {}
 
   async loadCategoryByName(name: string): Promise<Array<Category>> {
-    return await this.loadCategoryByNameRepository.loaByName(name);
+    const categories = await this.loadCategoryByNameRepository.loaByName(name);
+
+    if (categories?.length === 0) {
+      throw new NotFoundException('Category not found.');
+    }
+
+    return categories;
   }
 }
