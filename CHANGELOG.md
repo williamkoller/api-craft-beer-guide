@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ## Release [v 0.0.2] - 2021-02-13
 
-- Add LoadCategoryByname, LoadCategorybyId, LoadAllCategories and AddCategory
+- Add LoadCategoryByName, LoadCategoryById and AddCategory
 
 ## Release [v 0.0.1] - 2021-02-11
 
