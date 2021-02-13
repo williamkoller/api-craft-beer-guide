@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## Added
+## Release [v 0.0.1] - 2021-02-11
+
+### Added
 
 - Initial Project
 - Add Docker, docker-compose and PostgreSQL
@@ -16,10 +18,6 @@ All notable changes to this project will be documented in this file.
 - Add Style with CRUD repositories, services and controller
 - Add Swagger
 - Add LoadAllCategories in repository, service and controller
-
-## Release [v x.x.x] - xxxx-xx-xx
-
-### Added
 
 ### Changed
 
