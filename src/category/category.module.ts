@@ -7,16 +7,16 @@ import { LoadAllCategoriesController } from '@/category/controllers/load-all-cat
 import { AddCategoryRepository } from '@/category/repositories/add-category/add-category.repository';
 import { AddCategoryService } from '@/category/services/add-category/add-category.service';
 import { AddCategoryController } from '@/category/controllers/add-category/add-category.controller';
+import { PaginationService } from '@/shared/pagination/services/pagination.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      Category,
-      LoadAllCategoriesRepository,
-      AddCategoryRepository,
-    ]),
+  imports: [TypeOrmModule.forFeature([Category, AddCategoryRepository])],
+  providers: [
+    LoaddAllCategoriesService,
+    AddCategoryService,
+    LoadAllCategoriesRepository,
+    PaginationService,
   ],
-  providers: [LoaddAllCategoriesService, AddCategoryService],
   controllers: [LoadAllCategoriesController, AddCategoryController],
 })
 export class CategoryModule {}
