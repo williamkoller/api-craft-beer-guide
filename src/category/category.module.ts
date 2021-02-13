@@ -13,6 +13,8 @@ import { LoadPaginateObjectService } from '@/shared/pagination/services/load-pag
 import { LoadCategoryByIdRepository } from '@/category/repositories/load-category-by-id/load-category-by-id.repository';
 import { LoadCategoryByIdService } from '@/category/services/load-category-by-id/load-category-by-id.service';
 import { LoadCategoryByIdController } from '@/category/controllers/load-category-by-id/load-category-by-id.controller';
+import { LoadCategoryByNameService } from '@/category/services/load-category-by-name/load-categopry-by-name.service';
+import { LoadCategoryByNameController } from '@/category/controllers/load-category-by-name/load-category-by-name.controller';
 
 @Module({
   imports: [
@@ -30,11 +32,13 @@ import { LoadCategoryByIdController } from '@/category/controllers/load-category
     LoadPaginateObjectService,
     CalculateOffSetService,
     LoadCategoryByIdService,
+    LoadCategoryByNameService,
   ],
   controllers: [
     LoadAllCategoriesController,
     AddCategoryController,
     LoadCategoryByIdController,
+    LoadCategoryByNameController,
   ],
 })
 export class CategoryModule {}
