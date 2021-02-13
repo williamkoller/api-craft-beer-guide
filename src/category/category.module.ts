@@ -8,9 +8,16 @@ import { AddCategoryRepository } from '@/category/repositories/add-category/add-
 import { AddCategoryService } from '@/category/services/add-category/add-category.service';
 import { AddCategoryController } from '@/category/controllers/add-category/add-category.controller';
 import { PaginationService } from '@/shared/pagination/services/pagination.service';
+import { LoadCategoryByNameRepository } from '@/category/repositories/load-category-by-name/load-category-by-name.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Category, AddCategoryRepository])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Category,
+      AddCategoryRepository,
+      LoadCategoryByNameRepository,
+    ]),
+  ],
   providers: [
     LoaddAllCategoriesService,
     AddCategoryService,
