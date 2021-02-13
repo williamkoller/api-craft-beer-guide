@@ -70,7 +70,7 @@ export class UpdateCategoryDto {
   @IsOptional()
   tags?: Array<string>;
 
-  @ApiProperty()
+  @ApiProperty({ type: Style })
   @IsString()
   @IsOptional()
   style?: Style;
