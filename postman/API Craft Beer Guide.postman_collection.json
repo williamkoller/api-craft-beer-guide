@@ -18,7 +18,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"CZECH LAGER\",\n    \"description\": \"As cervejas tchecas são geralmente divididas pela densidade/gravidade (Draft, Lager, Special) e cor (Pale, Amber, Dark). Os nomes tchecos para estas categorias são Svetle (Pale), Polotmavé (Amber) e tmavé (Dark). As classes de densidade (gravidade) são výčepní (Draft, de 7-10 ° P), Lezak (Lager 11-12 ° P) e speciální (Special, 13 ° P +). Pivo é, naturalmente, a palavra Tcheca que significa cerveja. Classe divisão de densidade (gravidade) é semelhante para os grupos alemães Schankbier, Vollbier e Starkbier, embora com diferentes gamas. As cervejas tchecas dentro dessas classes são muitas vezes referidas pela sua densidade (gravidade). Muitas vezes, há variações nos agrupamentos de cor-gravidade, especialmente dentro da classe speciální. O Guia de Estilos BJCP combina algumas dessas classes, enquanto que outras cervejas no mercado tcheco não são descritas (como o Czech Porter forte). Isso não significa dizer que as categorias abaixo cobrem completamente todas as cervejas checas, eles são simplesmente uma forma de agrupar alguns dos estilos mais comuns para fins de avaliação. As lager tchecas diferem, geralmente, dos lagers alemãs e outras lagers ocidentais porque as lagers alemãs são quase sempre completamente atenuadas, enquanto as lagers tchecas podem ter uma pequena quantidade de extrato fermentado residual que é colocada na cerveja pronta. Isso ajuda a fornecer uma densidade/gravidade ligeiramente mais elevada final (e, portanto, uma aparente atenuação ligeiramente inferior), um corpo e uma sensação de boca ligeiramente mais cheios e um perfil de sabor mais rico e mais complexo do que em cervejas equivalentes em cor e grau. As lagers alemãs tendem a ter um perfil de fermentação mais limpo, enquanto que as lagers tchecas tendem a fermentar em temperaturas mais baixas (7-10 ° C) e por mais tempo, e pode ter uma quantidade pequena, quase imperceptível de diacetil (perto do limiar de percepção) que muitas vezes é percebido mais como um arredondamento do que abertamente como aroma e sabor [diacetil em nível significativo lembra amanteigado e é um defeito]. As cepas de leveduras lager tchecas não são sempre tão limpas e atenuativas como as cepas alemãs, ajudando a alcançar uma maior densidade (gravidade) final (juntamente com métodos de maceração a frio e fermentação). As lagers tchecas são tradicionalmente feitas com macerado de decocção (muitas vezes dupla decocção), mesmo com maltes modernos, enquanto a maioria dos modernos lagers alemãs são feitos de macerados por infusão ou infusão escalonada. Estas diferenças caracterizam a riqueza do perfil de sabor e sensação na boca que distingue as lagers checos.\",\n    \"categories\": [],\n    \"ref\": \"3\"\n}",
+									"raw": "{\n    \"name\": \"INTERNATIONAL LAGER\",\n    \"description\": \"As Internacional Lager são premium lager para um mercado de massa produzidas na maioria dos países do mundo. Já que foram desenvolvidas a partir de estilos americanos ou europeus, todas têm um caráter bastante uniforme e são altamente divulgadas. Livremente desenvolvidas a partir das lagers originais tipo Pilsner, com coloridas variações que têm adicionais sabores de maltes que mantêm um grande apelo para a maioria dos paladares. Em muitos países, o estilo será designado pelos seus nomes locais. O uso do termo 'internacional' não significa que estas cervejas são etiquetadas desta forma, ele é mais uma categorizaçãodas cervejas semelhantes produzidos em todo o mundo.\",\n    \"ref\": \"2\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26,11 +26,15 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/style",
+									"raw": "https://api-craft-beer-guide.herokuapp.com/api/style",
+									"protocol": "https",
 									"host": [
-										"{{url}}"
+										"api-craft-beer-guide",
+										"herokuapp",
+										"com"
 									],
 									"path": [
+										"api",
 										"style"
 									]
 								}
@@ -48,12 +52,27 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/styles",
+									"raw": "{{url}}/styles?page=1&limit=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"styles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "1"
+										},
+										{
+											"key": "name",
+											"value": "IN",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -70,13 +89,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/style/La",
+									"raw": "{{url}}/style/P",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"style",
-										"La"
+										"P"
 									]
 								}
 							},
@@ -102,36 +121,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/style/69929f37-342e-4138-805f-e36e66b9cbe3",
+									"raw": "{{url}}/style/b1ce5362-4483-47a4-b77a-8ba3ad749df2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"style",
-										"69929f37-342e-4138-805f-e36e66b9cbe3"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Delete Style",
-					"item": [
-						{
-							"name": "Delete Style",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/style/894a7419-e32b-4935-a5c1-46faf9998410",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"style",
-										"894a7419-e32b-4935-a5c1-46faf9998410"
+										"b1ce5362-4483-47a4-b77a-8ba3ad749df2"
 									]
 								}
 							},
@@ -148,13 +144,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/styleId/b1ce5362-4483-47a4-b77a-8ba3ad749df",
+									"raw": "{{url}}/styleId/b1ce5362-4483-47a4-b77a-8ba3ad749df4",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"styleId",
-										"b1ce5362-4483-47a4-b77a-8ba3ad749df"
+										"b1ce5362-4483-47a4-b77a-8ba3ad749df4"
 									]
 								}
 							},
@@ -182,6 +178,116 @@
 									],
 									"path": [
 										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add Category",
+					"item": [
+						{
+							"name": "Add Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ref\": \"1B\",\n    \"name\": \"American Lager\",\n    \"overallImpression\": \"Uma lager muito clara, altamente carbonatada, de corpo leve e bem atenuada, com um perfil de sabor 1muito neutro e de baixo amargor. Servida bem fria, eles podem ser muito refrescantes e saciadoras de sede.\",\n    \"aroma\": \"Baixo a nenhum aroma de malte, que, se presente, pode ser percebido como granulado, doce ou milho. Aroma de lúpulo muito leve a nenhum, com uma presença condimentada ou floral. Embora um caráter de fermentação limpa é desejável, algumas características de levedura (particularmente um ligeiro frutado maçã) não é uma falha. Um leve DMS não chega a ser uma falha.Baixo a nenhum aroma de malte,que, se presente, pode ser percebido como granulado, doce ou milho. Aroma de lúpulo muito leve a nenhum, com uma presença condimentada ou floral. Embora um caráter de fermentação limpa é desejável, algumas características de levedura (particularmente um ligeiro frutado maçã) não é uma falha. Um leve DMS não chega a ser uma falha.\",\n    \"appearance\": \"Cor palha a amarelo pálido. Espuma branca que não é muito persistente. Muito limpa.\",\n    \"flavor\": \"Relativamente neutro no palato com um final seco e fresco, com baixo a moderado-baixo sabor granulado ou de milho, o que pode ser percebido como doçura, devido ao baixo amargor. Sabor de lúpulo baixo a moderadamente baixo, que pode ter uma qualidade floral, picante (condimentada) e herbal (embora raramente forte o suficiente para ser distinguido). O amargor do lúpulo é baixo para médio-baixo. O equilíbrio pode variar de ligeiramente maltado a ligeiramente amargo, mas é relativamente equilibrada. O alto nível de carbonatação pode acentuar a frescura de um final seco. Caráter limpo de uma fermentação lager.\",\n    \"mouthFelling\": \"Corpo de baixo a médio-baixo. Muito altamente carbonatada, com um picor de gás carbônico que provoca ligeira coceira na língua.\",\n    \"comments\": \"Sabores fortes são uma falha. Em geral, são as cervejas que os bebedores de cerveja artesanal não esperam receber quando pedem uma cerveja nos EUA. Pode ser comercializado como Pilsner fora da Europa, mas não deve ser confundido com exemplos tradicionais.\",\n    \"history\": \"Apesar de, nos EUA, os imigrantes alemães produziram lagers inspirados por Pilsner tradicionais desde meados da década de 1800, o estilo moderno de American Lager foi fortemente influenciado pela proibição e a Segunda Guerra Mundial. As cervejarias sobreviventes consolidam, expandiram-se e promoveram fortemente um estilo de cerveja que caiu no gosto de uma grande parte da população. Durante décadas foi o estilo dominante de cerveja e, por isso, surgiram muitos rivais internacionais, que começaram a desenvolver produtos semelhantes para o mercado de massa suportada com campanhas publicitárias agressivas.\",\n    \"characteristicIngredients\": \"cevada de duas ou seis fileiras, com uma percentagem elevada (acima de 40%) de arroz ou milho como adjuntos.\",\n    \"styleComparison\": \"Com mais força, sabor e corpo que uma American Light Lager. Com menos amargor e sabor que uma International Lager. Com muitomenos sabor, lúpulo e amargor que as tradicionais Pilsner européias.\",\n    \"vitalStatistics\": {\n        \"og:\": \"1040-1050\",\n        \"fg\": \"1004-1010\",\n        \"srm\": \"2-4\",\n        \"ibu\": \"8-18\",\n        \"abv\": \"4,2-5,3%\"\n    },\n    \"commercialExamples\": [\n        \"Budweiser, Coors\",\n        \"Original\",\n        \"Grain Belt Premium Lager\",\n        \"Miller High Life\",\n        \"Pabst Blue Ribbon\",\n        \"Special Export\"\n    ],\n    \"tags\": [\n        \"Intensidade Standard\", \"Cor Clara\",\n\"Fermentação Baixa\", \"Lagered (maturada)\",\n\"Estilo Tradicional\", \"América do Norte\",\n\"familia-pale-lager\", \"Balanceada\"\n    ],\n    \"style\": \"16646850-716b-45b7-99a3-3863f24532b7\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load Category By Id",
+					"item": [
+						{
+							"name": "Load Category By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/f23a0eab-a347-4c0c-bbc0-20504c8d1d13",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"f23a0eab-a347-4c0c-bbc0-20504c8d1d13"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load Category By Name",
+					"item": [
+						{
+							"name": "Load Category By Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/name/L",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"name",
+										"L"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update Category",
+					"item": [
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"American Light Lager\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/category/f23a0eab-a347-4c0c-bbc0-20504c8d1d13",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"f23a0eab-a347-4c0c-bbc0-20504c8d1d13"
 									]
 								}
 							},
