@@ -6,8 +6,8 @@ import { Repository, EntityRepository } from 'typeorm';
 @EntityRepository(Style)
 export class AddStyleRepository extends Repository<Style> {
   async add(addStyleDto: AddStyleDto): Promise<Style> {
-    const styleCreated = this.create(addStyleDto);
-    validateOrReject(addStyleDto);
-    return await this.save(styleCreated);
+    const style = Object.assign({} as Style, addStyleDto);
+    validateOrReject(style);
+    return await this.save(style);
   }
 }

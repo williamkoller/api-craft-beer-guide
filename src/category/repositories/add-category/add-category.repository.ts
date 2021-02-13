@@ -8,7 +8,6 @@ export class AddCategoryRepository extends Repository<Category> {
   async addCategory(addCategoryDto: AddCategoryDto): Promise<Category> {
     const category = Object.assign({} as Category, addCategoryDto);
     validateOrReject(category);
-    const categoryCreated = this.create(category);
-    return await this.save(categoryCreated);
+    return await this.save(category);
   }
 }
