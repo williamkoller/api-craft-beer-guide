@@ -16,6 +16,8 @@ import { LoadCategoryByIdController } from '@/category/controllers/load-category
 import { LoadCategoryByNameService } from '@/category/services/load-category-by-name/load-categopry-by-name.service';
 import { LoadCategoryByNameController } from '@/category/controllers/load-category-by-name/load-category-by-name.controller';
 import { UpdateCategoryRepository } from '@/category/repositories/update-category/update-category.repository';
+import { UpdateCategoryController } from '@/category/controllers/update-category/update-category.controller';
+import { UpdateCategoryService } from '@/category/services/update-category/update-category.service';
 
 @Module({
   imports: [
@@ -35,12 +37,14 @@ import { UpdateCategoryRepository } from '@/category/repositories/update-categor
     CalculateOffSetService,
     LoadCategoryByIdService,
     LoadCategoryByNameService,
+    UpdateCategoryService,
   ],
   controllers: [
     LoadAllCategoriesController,
     AddCategoryController,
     LoadCategoryByIdController,
     LoadCategoryByNameController,
+    UpdateCategoryController,
   ],
 })
 export class CategoryModule {}
