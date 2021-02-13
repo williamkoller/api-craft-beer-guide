@@ -1,7 +1,8 @@
 import { FilterCategoryDto } from '@/category/dtos/filter-category/filter-category.dto';
 import { Category } from '@/entities/category.entity';
 import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.intercafe';
-import { PaginationService } from '@/shared/pagination/services/pagination.service';
+import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
+import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -11,7 +12,8 @@ export class LoadAllCategoriesRepository {
   constructor(
     @InjectRepository(Category)
     private readonly loadAllCategoriesRepository: Repository<Category>,
-    private readonly paginationService: PaginationService,
+    private readonly loadPaginateObjectService: LoadPaginateObjectService,
+    private readonly calculateOffSetService: CalculateOffSetService,
   ) {}
   async loadAll(
     filterCategoryDto: FilterCategoryDto,
@@ -21,7 +23,7 @@ export class LoadAllCategoriesRepository {
 
     const { search } = filterCategoryDto;
 
-    const offSet = this.paginationService.calculateOffset(page, limit);
+    const offSet = this.calculateOffSetService.calculateOffset(page, limit);
 
     const query = this.loadAllCategoriesRepository.createQueryBuilder(
       'categories',
@@ -34,7 +36,7 @@ export class LoadAllCategoriesRepository {
 
     const [report, totalCount] = await query.getManyAndCount();
 
-    const pagination = this.paginationService.buildPaginationObject({
+    const pagination = this.loadPaginateObjectService.loadPaginateObject({
       limit,
       offset: offSet,
       page,

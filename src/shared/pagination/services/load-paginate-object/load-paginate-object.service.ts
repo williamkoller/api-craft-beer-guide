@@ -1,29 +1,11 @@
+import { Injectable } from '@nestjs/common';
 import { PaginationDto } from '@/shared/pagination/dtos/pagination/pagination.dto';
 import { Pagination } from '@/shared/pagination/interfaces/pagination/pagination.interface';
-import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class PaginationService {
+export class LoadPaginateObjectService {
   constructor() {}
-
-  paginateResultSetKeys(
-    keys: string[],
-    offset: number,
-    limit: number,
-  ): string[] {
-    let result: string[] = keys;
-
-    if (offset) {
-      result = result.slice(offset);
-    }
-    if (limit) {
-      result = result.slice(0, limit);
-    }
-
-    return result;
-  }
-
-  buildPaginationObject(paginationData: PaginationDto): Pagination {
+  loadPaginateObject(paginationData: PaginationDto): Pagination {
     const { totalCount, page } = paginationData;
 
     const offset = Number(paginationData.offset);
@@ -40,11 +22,5 @@ export class PaginationService {
     };
 
     return result;
-  }
-
-  calculateOffset(page: number, limit: number): number {
-    const offset = limit * (page - 1);
-
-    return offset;
   }
 }

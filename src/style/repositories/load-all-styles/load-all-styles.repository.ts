@@ -1,6 +1,7 @@
 import { Style } from '@/entities/style.entity';
 import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.intercafe';
-import { PaginationService } from '@/shared/pagination/services/pagination.service';
+import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
+import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
 import { FilterStyleDto } from '@/style/dtos/filter-style/filter-style.dto.ts';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -10,9 +11,10 @@ import { Repository, EntityRepository } from 'typeorm';
 @EntityRepository(Style)
 export class LoadAllStylesRepository {
   constructor(
-    private readonly paginationService: PaginationService,
     @InjectRepository(Style)
     private readonly loadAllStylesRepository: Repository<Style>,
+    private readonly calculateOffSetService: CalculateOffSetService,
+    private readonly loadPaginateObjectService: LoadPaginateObjectService,
   ) {}
   async loadAllStyles(
     filterStyleDto: FilterStyleDto,
@@ -22,7 +24,7 @@ export class LoadAllStylesRepository {
 
     const { search } = filterStyleDto;
 
-    const offSet = this.paginationService.calculateOffset(page, limit);
+    const offSet = this.calculateOffSetService.calculateOffset(page, limit);
 
     const query = this.loadAllStylesRepository
       .createQueryBuilder('styles')
@@ -36,7 +38,7 @@ export class LoadAllStylesRepository {
 
     const [report, totalCount] = await query.getManyAndCount();
 
-    const pagination = this.paginationService.buildPaginationObject({
+    const pagination = this.loadPaginateObjectService.loadPaginateObject({
       limit,
       offset: offSet,
       page,

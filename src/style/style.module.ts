@@ -20,7 +20,8 @@ import { DeleteStyleController } from '@/style/controllers/delete-style/delete-s
 import { LoadStyleByIdRepository } from '@/style/repositories/load-style-by-id/load-style-by-id.repository';
 import { LoadStyleByIdService } from '@/style/services/load-style-by-id/load-style-by-id.service';
 import { LoadStyleByIdController } from '@/style/controllers/load-style-by-id/load-style-by-id.controller';
-import { PaginationService } from '@/shared/pagination/services/pagination.service';
+import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
+import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
 import { CategoryModule } from '@/category/category.module';
 
 @Module({
@@ -43,7 +44,8 @@ import { CategoryModule } from '@/category/category.module';
     UpdateStyleService,
     DeleteStyleService,
     LoadStyleByIdService,
-    PaginationService,
+    CalculateOffSetService,
+    LoadPaginateObjectService,
     LoadAllStylesRepository,
   ],
   controllers: [
