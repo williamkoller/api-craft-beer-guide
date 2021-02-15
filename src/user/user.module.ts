@@ -6,15 +6,30 @@ import { AddUserService } from '@/user/services/add-user/add-user.service';
 import { AddUserController } from '@/user/controllers/add-user/add-user.controller';
 import { CryptHashEncrypt } from '@/shared/crypt-hash/crypt-hash-encrypt/crypt-hash-encrypt';
 import { CryptHashCompare } from '@/shared/crypt-hash/crypt-hash-compare/crypt-hash-compare';
+import { UpdateUserRepository } from '@/user/repositories/update-user/update-user.repository';
+import { LoadUserByIdRepository } from '@/user/repositories/load-user-by-id/load-user-by-id.repository';
+import { UpdateUserService } from '@/user/services/update-user/update-user.service';
+import { UpdateUserController } from '@/user/controllers/update-user/update-user.controller';
+import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
+import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-user-by-email.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [
+    TypeOrmModule.forFeature([
+      User,
+      LoadUserByIdRepository,
+      LoadUserByEmailRepository,
+    ]),
+  ],
   providers: [
     AddUserService,
     CryptHashEncrypt,
     CryptHashCompare,
     AddUserRepository,
+    UpdateUserRepository,
+    UpdateUserService,
+    LoadUserByEmailService,
   ],
-  controllers: [AddUserController],
+  controllers: [AddUserController, UpdateUserController],
 })
 export class UserModule {}
