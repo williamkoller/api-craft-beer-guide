@@ -1,19 +1,19 @@
 import { User } from '@/entities/user.entity';
 import { AddUserDto } from '@/user/dtos/add-user/add-user.dto';
 import { AddUserRepository } from '@/user/repositories/add-user/add-user.repository';
+import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
 import { ConflictException, Injectable } from '@nestjs/common';
-import { LoadUserByEmailService } from '../load-user-by-email/load-user-by-email.service';
 
 @Injectable()
 export class AddUserService {
   constructor(
     private readonly addUserRepository: AddUserRepository,
-    private readonly loadUserByEmailservice: LoadUserByEmailService,
+    private readonly loadUserByEmailRepository: LoadUserByEmailRepository,
   ) {}
 
   async add(addUserDto: AddUserDto): Promise<User> {
     const { email } = addUserDto;
-    const user = await this.loadUserByEmailservice.loadUserByEmail(email);
+    const user = await this.loadUserByEmailRepository.loadByEmail(email);
     if (user) {
       throw new ConflictException(
         'There is already a record with a email for this user.',
