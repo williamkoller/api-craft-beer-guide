@@ -12,6 +12,9 @@ import { UpdateUserService } from '@/user/services/update-user/update-user.servi
 import { UpdateUserController } from '@/user/controllers/update-user/update-user.controller';
 import { LoadUserByEmailRepository } from '@/user/repositories/load-user-by-email/load-user-by-email.repository';
 import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-user-by-email.service';
+import { LoadAllUsersRepository } from '@/user/repositories/load-all-users/load-all-users.repository';
+import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
+import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-ussers.controller';
 
 @Module({
   imports: [
@@ -19,6 +22,7 @@ import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-
       User,
       LoadUserByIdRepository,
       LoadUserByEmailRepository,
+      LoadAllUsersRepository,
     ]),
   ],
   providers: [
@@ -29,7 +33,13 @@ import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-
     UpdateUserRepository,
     UpdateUserService,
     LoadUserByEmailService,
+    LoadAllUsersService,
   ],
-  controllers: [AddUserController, UpdateUserController],
+  controllers: [
+    AddUserController,
+    UpdateUserController,
+    LoadAllUsersController,
+  ],
+  exports: [LoadUserByEmailService],
 })
 export class UserModule {}
