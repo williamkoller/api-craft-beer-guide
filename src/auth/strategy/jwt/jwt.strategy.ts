@@ -1,9 +1,10 @@
 import { User } from '@/entities/user.entity';
 import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
-import { UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
+@Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly loadUserByIdService: LoadUserByIdService) {
     super({
