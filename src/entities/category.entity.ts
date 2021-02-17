@@ -41,10 +41,10 @@ export class Category extends BaseEntity {
   };
 
   @Column('text', { array: true })
-  commercialExamples: Array<string>;
+  commercialExamples: string[];
 
   @Column('text', { array: true })
-  tags: Array<string>;
+  tags: string[];
 
   @ManyToOne(() => Style, (style) => style.categories)
   @JoinTable()
@@ -55,4 +55,9 @@ export class Category extends BaseEntity {
 
   @Column({ type: 'varchar' })
   flavor: string;
+
+  constructor(partial: Partial<Category>) {
+    super();
+    Object.assign(this, partial);
+  }
 }

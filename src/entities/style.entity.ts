@@ -19,9 +19,14 @@ export class Style extends BaseEntity {
     eager: true,
   })
   @JoinTable()
-  categories: Array<Category>;
+  categories: Category[];
 
   @ApiProperty()
   @Column({ type: 'varchar' })
   ref: string;
+
+  constructor(partial: Partial<Style>) {
+    super();
+    Object.assign(this, partial);
+  }
 }
