@@ -9,10 +9,17 @@ import { User } from '@/entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from '@/auth/strategy/jwt/jwt.strategy';
 import { AuthLoginController } from '@/auth/controllers/auth-login/auth-login.controller';
+import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
+import { LoadUserByIdRepository } from '@/user/repositories/load-user-by-id/load-user-by-id.repository';
+import { LoadUserService } from '@/user/services/load-user/load-user.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User, LoadUserByEmailRepository]),
+    TypeOrmModule.forFeature([
+      User,
+      LoadUserByEmailRepository,
+      LoadUserByIdRepository,
+    ]),
     JwtModule.registerAsync({
       useFactory: () => ({
         secret: process.env.JWT_SECRET,
@@ -26,8 +33,10 @@ import { AuthLoginController } from '@/auth/controllers/auth-login/auth-login.co
     CryptHashCompare,
     ValidateUserService,
     LoadUserByEmailService,
+    LoadUserByIdService,
     JwtTokenService,
     JwtStrategy,
+    LoadUserService,
   ],
   controllers: [AuthLoginController],
 })
