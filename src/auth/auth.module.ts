@@ -12,6 +12,7 @@ import { AuthLoginController } from '@/auth/controllers/auth-login/auth-login.co
 import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
 import { LoadUserByIdRepository } from '@/user/repositories/load-user-by-id/load-user-by-id.repository';
 import { LoadUserService } from '@/user/services/load-user/load-user.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -24,9 +25,12 @@ import { LoadUserService } from '@/user/services/load-user/load-user.service';
       useFactory: () => ({
         secret: process.env.JWT_SECRET,
         signOptions: {
-          expiresIn: '1d',
+          expiresIn: '60s',
         },
       }),
+    }),
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
   ],
   providers: [

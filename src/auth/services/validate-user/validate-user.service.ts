@@ -28,6 +28,8 @@ export class ValidateUserService {
       throw new UnauthorizedException('Incorrect password or email.');
     }
 
+    delete user.password;
+
     return {
       user,
       token: await this.jwtTokenService.jwtToken(user),
