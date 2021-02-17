@@ -11,7 +11,7 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -22,12 +22,29 @@ export class AuthLoginController {
   ) {}
 
   @Post('login')
+  @ApiResponse({
+    status: 200,
+    description: 'User logged with successfully.',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Unauthorized',
+  })
   async async(@Body() authUserDto: AuthUserDto): Promise<ReturnUserDto> {
     return await this.validateUserService.validateUser(authUserDto);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
+  @ApiResponse({
+    status: 200,
+    description: 'Return UserProfile in request.',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Unauthorized',
+  })
+  @ApiBearerAuth()
   async getProfile(@Request() req) {
     return await this.loadUserService.loadUser(req.id);
   }
