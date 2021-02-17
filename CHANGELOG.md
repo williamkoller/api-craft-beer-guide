@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Add User Module and Auth Module
+- Add migration user
+- Add JwtStrategy
+- Add Auth Login
+- Add Get Profile
+
 ## Release [v 0.0.2] - 2021-02-13
 
 - Add LoadCategoryByName, LoadCategoryById and AddCategory
@@ -22,11 +30,6 @@ All notable changes to this project will be documented in this file.
 - Add Style with CRUD repositories, services and controller
 - Add Swagger
 - Add LoadAllCategories in repository, service and controller
-- Add User Module and Auth Module
-- Add migration user
-- Add JwtStrategy
-- Add Auth Login
-- Add Get Profile
 
 ### Changed
 
