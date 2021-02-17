@@ -13,6 +13,7 @@ export class LoadAllUsersService {
     if (users?.length === 0) {
       throw new NotFoundException('No records found.');
     }
+    users.map((user) => delete user.password);
     return users;
   }
 }
