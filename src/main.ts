@@ -4,10 +4,15 @@ import { AppModule } from '@/app/app.module';
 import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
 import * as rateLimit from 'express-rate-limit';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ModelNotFoundException } from '@/common/filters/model-not-found.exception.filter';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const logger = new Logger('Main');
   app.useGlobalInterceptors(new LoggingInterceptor());
+  app.useGlobalFilters(new ModelNotFoundException());
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.setGlobalPrefix('api');
   app.use(
     rateLimit({
@@ -27,6 +32,8 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
-  await app.listen(process.env.PORT);
+  await app.listen(process.env.PORT, () =>
+    logger.log('Application is listening'),
+  );
 }
 bootstrap();
