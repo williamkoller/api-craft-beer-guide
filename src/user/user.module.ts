@@ -15,6 +15,7 @@ import { LoadUserByEmailService } from '@/user/services/load-user-by-email/load-
 import { LoadAllUsersRepository } from '@/user/repositories/load-all-users/load-all-users.repository';
 import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
 import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-ussers.controller';
+import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-a
     UpdateUserService,
     LoadUserByEmailService,
     LoadAllUsersService,
+    LoadUserByIdService,
   ],
   controllers: [
     AddUserController,

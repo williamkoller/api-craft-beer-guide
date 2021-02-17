@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+// tslint:disable-next-line: no-var-requires
 require('dotenv').config();
 
 class ConfigService {
@@ -50,26 +51,6 @@ class ConfigService {
         keepConnectionAlive: true,
         connectTimeoutMS: 15000,
         url: this.getValue('DATABASE_PROD'),
-      },
-      {
-        name: 'seed',
-        type: 'postgres',
-        host: this.getValue('POSTGRES_HOST'),
-        port: parseInt(this.getValue('POSTGRES_PORT'), 0),
-        username: this.getValue('POSTGRES_USER'),
-        password: this.getValue('POSTGRES_PASSWORD'),
-        database: this.getValue('POSTGRES_DATABASE'),
-        logging: JSON.parse(this.getValue('LOGGING')),
-        migrationsTableName: 'seeds',
-        migrations: [
-          `${__dirname}/../seeds/${this.getValue('MODE')}/**/*{.ts,.js}`,
-        ],
-        cli: {
-          migrationsDir: `src/seeds/${this.getValue('MODE')}`,
-        },
-        retryAttempts: 3,
-        retryDelay: 3000,
-        keepConnectionAlive: false,
       },
     ];
   }
