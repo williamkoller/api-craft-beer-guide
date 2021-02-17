@@ -10,7 +10,6 @@ export class AuthUserDto {
 
   @ApiProperty()
   @IsString()
-  @IsEmail()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
   password: string;
 }
