@@ -59,15 +59,14 @@ export class AddCategoryDto {
   };
 
   @ApiProperty()
-  @IsString()
-  @IsNotEmpty({ message: 'This field cannot be empty.' })
-  commercialExamples: Array<string>;
-
-  @ApiProperty()
-  @IsString()
   @IsArray()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
-  tags: Array<string>;
+  commercialExamples: string[];
+
+  @ApiProperty()
+  @IsArray()
+  @IsNotEmpty({ message: 'This field cannot be empty.' })
+  tags: string[];
 
   @ApiProperty()
   @IsString()
