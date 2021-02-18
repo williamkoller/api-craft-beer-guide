@@ -12,6 +12,7 @@
     "interface-name": [false],
     "no-empty": [false],
     "arrow-parens": false,
+    "no-bitwise": false,
     "object-literal-sort-keys": false,
     "quotemark": [true, "single", "jsx-double"],
     "object-literal-key-quotes": [false, "consistent-as-needed"]
