@@ -14,10 +14,7 @@ export class Style extends BaseEntity {
   description: string;
 
   @ApiProperty()
-  @OneToMany(() => Category, (category) => category.style, {
-    cascade: true,
-    eager: true,
-  })
+  @OneToMany(() => Category, (category) => category.style, { eager: true })
   @JoinTable()
   categories: Category[];
 

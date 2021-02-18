@@ -46,7 +46,7 @@ export class Category extends BaseEntity {
   @Column('text', { array: true })
   tags: string[];
 
-  @ManyToOne(() => Style, (style) => style.categories)
+  @ManyToOne(() => Style, (style) => style.categories, { cascade: true })
   @JoinTable()
   style: Style;
 
