@@ -1,6 +1,6 @@
 import { FilterCategoryDto } from '@/category/dtos/filter-category/filter-category.dto';
 import { Category } from '@/entities/category.entity';
-import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.intercafe';
+import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.interface';
 import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
 import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
 import { Injectable } from '@nestjs/common';
@@ -17,7 +17,7 @@ export class LoadAllCategoriesRepository {
   ) {}
   async loadAll(
     filterCategoryDto: FilterCategoryDto,
-  ): Promise<ResultWithPagination<Array<Category>>> {
+  ): Promise<ResultWithPagination<Category[]>> {
     const page = filterCategoryDto.page | 1;
     const limit = filterCategoryDto.limit | 1;
 
