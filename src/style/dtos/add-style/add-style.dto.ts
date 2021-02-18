@@ -14,11 +14,6 @@ export class AddStyleDto {
   description: string;
 
   @ApiProperty()
-  @IsArray()
-  @IsNotEmpty({ message: 'This field cannot be empty.' })
-  categories: Array<Category>;
-
-  @ApiProperty()
   @IsOptional()
   ref: string;
 }

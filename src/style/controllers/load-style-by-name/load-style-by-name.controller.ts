@@ -19,7 +19,7 @@ export class LoadStyleByNameController {
     status: 404,
     description: 'Style not found.',
   })
-  async loadByName(@Param('name') name: string): Promise<Array<Style>> {
+  async loadByName(@Param('name') name: string): Promise<Style> {
     return await this.loadStyleByNameService.loadByName(name);
   }
 }

@@ -13,7 +13,7 @@ export class AddStyleService {
 
   async addStyle(addStyleDto: AddStyleDto): Promise<Style> {
     const { name } = addStyleDto;
-    const [style] = await this.loadStyleByNameService.loadByName(name);
+    const style = await this.loadStyleByNameService.loadByName(name);
     if (style) {
       throw new ConflictException(
         'There is already a record with a name for this style.',

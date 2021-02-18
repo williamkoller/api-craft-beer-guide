@@ -1,5 +1,5 @@
 import { Style } from '@/entities/style.entity';
-import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.intercafe';
+import { ResultWithPagination } from '@/shared/pagination/interfaces/result-with-pagination/result-with-pagination.interface';
 import { CalculateOffSetService } from '@/shared/pagination/services/calculate-off-set/calculate-off-set.service';
 import { LoadPaginateObjectService } from '@/shared/pagination/services/load-paginate-object/load-paginate-object.service';
 import { FilterStyleDto } from '@/style/dtos/filter-style/filter-style.dto.ts';
@@ -18,7 +18,7 @@ export class LoadAllStylesRepository {
   ) {}
   async loadAllStyles(
     filterStyleDto: FilterStyleDto,
-  ): Promise<ResultWithPagination<Array<Style>>> {
+  ): Promise<ResultWithPagination<Style[]>> {
     const page = filterStyleDto.page | 1;
     const limit = filterStyleDto.limit | 1;
 
@@ -28,11 +28,10 @@ export class LoadAllStylesRepository {
 
     const query = this.loadAllStylesRepository
       .createQueryBuilder('styles')
-      .innerJoinAndSelect('styles.categories', 'categories')
-      .innerJoinAndSelect('categories.style', 'style');
+      .leftJoinAndSelect('styles.categories', 'categories');
 
     if (search) {
-      query.andWhere('styles.name ilike :name', { name: `%${search}%` });
+      query.where('styles.name ilike :name', { name: `%${search}%` });
     }
     query.orderBy('styles.ref', 'ASC').skip(offSet).take(limit);
 
