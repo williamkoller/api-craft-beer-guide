@@ -1,6 +1,7 @@
+import { JwtAuthGuard } from '@/auth/guards/jwt-auth.guard';
 import { DeleteCategoryService } from '@/category/services/delete-category/delete-category.service';
 import { ReturnResponseMessageType } from '@/utils/types/return-message/return-response-message.type';
-import { Controller, Delete, Param } from '@nestjs/common';
+import { Controller, Delete, Param, UseGuards } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('category')
@@ -17,6 +18,7 @@ export class DeleteCategoryController {
     status: 404,
     description: 'Category not found.',
   })
+  @UseGuards(JwtAuthGuard)
   async delete(@Param('id') id: string): Promise<ReturnResponseMessageType> {
     return await this.deleteCategoryService.deleteCategory(id);
   }

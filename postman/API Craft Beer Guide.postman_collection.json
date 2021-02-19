@@ -18,7 +18,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"INTERNATIONAL LAGER\",\n    \"description\": \"As Internacional Lager são premium lager para um mercado de massa produzidas na maioria dos países do mundo. Já que foram desenvolvidas a partir de estilos americanos ou europeus, todas têm um caráter bastante uniforme e são altamente divulgadas. Livremente desenvolvidas a partir das lagers originais tipo Pilsner, com coloridas variações que têm adicionais sabores de maltes que mantêm um grande apelo para a maioria dos paladares. Em muitos países, o estilo será designado pelos seus nomes locais. O uso do termo 'internacional' não significa que estas cervejas são etiquetadas desta forma, ele é mais uma categorizaçãodas cervejas semelhantes produzidos em todo o mundo.\",\n    \"ref\": \"2\"\n}",
+									"raw": "{\n    \"name\": \"STANDARD AMERICAN BEER\",\n    \"description\": \"Esta categoria descreve as cervejas americanas de todos os dias, que são do gosto do público de massa. Podem ser ales ou lagers. As cervejas nesta categoria geralmente não são complexas, seus sabores são suaves e fáceis de tomar. As ales normalmente têm características semelhantes às lagers, e são projetados para capturar os bebedores de lagers de massa como cervejas de transição. Cervejas de consumo de massa, de sabor mais internacional ou de origem internacional, são descritos na categoria Internacional Lager.\",\n    \"ref\": \"1\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26,15 +26,11 @@
 									}
 								},
 								"url": {
-									"raw": "https://api-craft-beer-guide.herokuapp.com/api/style",
-									"protocol": "https",
+									"raw": "{{url}}/style",
 									"host": [
-										"api-craft-beer-guide",
-										"herokuapp",
-										"com"
+										"{{url}}"
 									],
 									"path": [
-										"api",
 										"style"
 									]
 								}
@@ -69,8 +65,8 @@
 											"value": "1"
 										},
 										{
-											"key": "name",
-											"value": "IN",
+											"key": "search",
+											"value": "BB",
 											"disabled": true
 										}
 									]
@@ -144,13 +140,46 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/styleId/b1ce5362-4483-47a4-b77a-8ba3ad749df4",
+									"raw": "{{url}}/styleId/980a78e5-208e-4b7b-b140-ba07d2022171",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"styleId",
-										"b1ce5362-4483-47a4-b77a-8ba3ad749df4"
+										"980a78e5-208e-4b7b-b140-ba07d2022171"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete Style",
+					"item": [
+						{
+							"name": "Delete Style",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/style/980a78e5-208e-4b7b-b140-ba07d2022171",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"style",
+										"980a78e5-208e-4b7b-b140-ba07d2022171"
 									]
 								}
 							},
@@ -172,12 +201,27 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/categories",
+									"raw": "{{url}}/categories?page=1&limit=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "BB",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -195,7 +239,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"ref\": \"1B\",\n    \"name\": \"American Lager\",\n    \"overallImpression\": \"Uma lager muito clara, altamente carbonatada, de corpo leve e bem atenuada, com um perfil de sabor 1muito neutro e de baixo amargor. Servida bem fria, eles podem ser muito refrescantes e saciadoras de sede.\",\n    \"aroma\": \"Baixo a nenhum aroma de malte, que, se presente, pode ser percebido como granulado, doce ou milho. Aroma de lúpulo muito leve a nenhum, com uma presença condimentada ou floral. Embora um caráter de fermentação limpa é desejável, algumas características de levedura (particularmente um ligeiro frutado maçã) não é uma falha. Um leve DMS não chega a ser uma falha.Baixo a nenhum aroma de malte,que, se presente, pode ser percebido como granulado, doce ou milho. Aroma de lúpulo muito leve a nenhum, com uma presença condimentada ou floral. Embora um caráter de fermentação limpa é desejável, algumas características de levedura (particularmente um ligeiro frutado maçã) não é uma falha. Um leve DMS não chega a ser uma falha.\",\n    \"appearance\": \"Cor palha a amarelo pálido. Espuma branca que não é muito persistente. Muito limpa.\",\n    \"flavor\": \"Relativamente neutro no palato com um final seco e fresco, com baixo a moderado-baixo sabor granulado ou de milho, o que pode ser percebido como doçura, devido ao baixo amargor. Sabor de lúpulo baixo a moderadamente baixo, que pode ter uma qualidade floral, picante (condimentada) e herbal (embora raramente forte o suficiente para ser distinguido). O amargor do lúpulo é baixo para médio-baixo. O equilíbrio pode variar de ligeiramente maltado a ligeiramente amargo, mas é relativamente equilibrada. O alto nível de carbonatação pode acentuar a frescura de um final seco. Caráter limpo de uma fermentação lager.\",\n    \"mouthFelling\": \"Corpo de baixo a médio-baixo. Muito altamente carbonatada, com um picor de gás carbônico que provoca ligeira coceira na língua.\",\n    \"comments\": \"Sabores fortes são uma falha. Em geral, são as cervejas que os bebedores de cerveja artesanal não esperam receber quando pedem uma cerveja nos EUA. Pode ser comercializado como Pilsner fora da Europa, mas não deve ser confundido com exemplos tradicionais.\",\n    \"history\": \"Apesar de, nos EUA, os imigrantes alemães produziram lagers inspirados por Pilsner tradicionais desde meados da década de 1800, o estilo moderno de American Lager foi fortemente influenciado pela proibição e a Segunda Guerra Mundial. As cervejarias sobreviventes consolidam, expandiram-se e promoveram fortemente um estilo de cerveja que caiu no gosto de uma grande parte da população. Durante décadas foi o estilo dominante de cerveja e, por isso, surgiram muitos rivais internacionais, que começaram a desenvolver produtos semelhantes para o mercado de massa suportada com campanhas publicitárias agressivas.\",\n    \"characteristicIngredients\": \"cevada de duas ou seis fileiras, com uma percentagem elevada (acima de 40%) de arroz ou milho como adjuntos.\",\n    \"styleComparison\": \"Com mais força, sabor e corpo que uma American Light Lager. Com menos amargor e sabor que uma International Lager. Com muitomenos sabor, lúpulo e amargor que as tradicionais Pilsner européias.\",\n    \"vitalStatistics\": {\n        \"og:\": \"1040-1050\",\n        \"fg\": \"1004-1010\",\n        \"srm\": \"2-4\",\n        \"ibu\": \"8-18\",\n        \"abv\": \"4,2-5,3%\"\n    },\n    \"commercialExamples\": [\n        \"Budweiser, Coors\",\n        \"Original\",\n        \"Grain Belt Premium Lager\",\n        \"Miller High Life\",\n        \"Pabst Blue Ribbon\",\n        \"Special Export\"\n    ],\n    \"tags\": [\n        \"Intensidade Standard\", \"Cor Clara\",\n\"Fermentação Baixa\", \"Lagered (maturada)\",\n\"Estilo Tradicional\", \"América do Norte\",\n\"familia-pale-lager\", \"Balanceada\"\n    ],\n    \"style\": \"16646850-716b-45b7-99a3-3863f24532b7\"\n}",
+									"raw": "{\n  \"ref\": \"1A\",\n  \"name\": \"American Light Lager\",\n  \"overallImpression\": \"Altamente carbonatada e corpo muito leve, são lagers quase sem sabor e projetadas para serem consumidos bem geladas. Muito refrescantes e para matar a sede.\",\n  \"aroma\": \"Baixo a nenhum aroma de malte, embora, se presente pode ser percebido como granulado, doce ou milho. Aroma de lúpulo leve a nenhum; se presente, apresenta um caráter picante ou floral. Apesar de um caráter de fermentação limpa é desejável, algumas características de levedura (particularmente um leve frutado de maçã) não é uma falha. DMS em níveis baixos não é uma falha.\",\n  \"appearance\": \"Cor palha a amarelo pálido. Espuma branca que não é muito persistente. Muito limpa.\",\n  \"flavor\": \"Relativamente neutro no palato com um final fresco e seco, com um baixo a muito baixo sabor de grãos sabor ou como milho, o que pode ser percebido como doçura, devido ao baixo amargor. Sabor de lúpulo de baixo a nenhum; se presente, pode ter uma qualidade floral, picante e herbal (embora raramente forte o suficiente para ser detectado). Baixo a muito baixo amargor de lúpulo. Oequilíbrio pode variar de ligeiramente maltado a ligeiramente amargo, mas é relativamente equilibrada. O alto nível de carbonatação pode acentuar a frescura deum final seco. Caráter limpo de uma fermentação lager.\",\n  \"mouthFelling\": \"corpo muito leve (às vezes aguado). Muito altamente carbonatada com sensação de se receber agulhadas na língua por atuação do gás carbônico.\",\n  \"comments\": \"Projetado para cativar a mais ampla gama de pessoas possível. Sabores fortes significam uma falha na cerveja.\",\n  \"history\": \"A Coors produziu uma light lager por alguns anos, na década de 1940. As versões modernas foram produzidas inicialmente por Rheingold, em 1967, para atingir os consumidores que faziam dieta, mas só se tornaram uma cerveja popular em 1973, após a cervejaria Miller adquirir a receita e fazer grande campanha de marketing para ser promovida entre esportistas com o slogan: 'muito gosto, com menos calorias.' As cervejas deste tipo passaram a ser as mais vendidas nos EUA na década de 1990.\",\n  \"characteristicIngredients\": \"cevada de duas ou seis fileiras, com uma percentagem elevada (acima de 40%) de arroz ou milho como adjuntos. Enzimas adicionais permitem um corpo mais leve e menos carboidratos.\",\n  \"styleComparison\": \"Uma versão de corpo mais leve, menos álcool e calorias do que uma American Lager. Menos caráter de lúpulo amargo que de uma Leichtbier.\",\n  \"vitalStatistics\": {\n    \"og:\": \"1028-1040\",\n    \"fg\": \"0.998-1.008\",\n    \"srm\": \"2-3\",\n    \"ibu\": \"8-12\",\n    \"abv\": \"2,8-4,2%\"\n  },\n  \"commercialExamples\": [\n    \"Bud Light\",\n    \"Coors Light\",\n    \"Keystone Light\",\n    \"Michelob Light\",\n    \"Miller Lite\",\n    \"Old Milwaukee Light\"\n  ],\n  \"tags\": [\n    \"Intensidade Session\",\n    \"Cor Clara\",\n    \"Fermentação Baixa\",\n    \"Lagered (maturada)\",\n    \"Estilo Tradicional\",\n    \"América do Norte\",\n    \"família-pale-lager\",\n    \"Balanceada\"\n  ],\n  \"style\": \"f2333982-b6f7-4b77-8b91-d0ad50079f26\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -294,6 +338,229 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Delete Category",
+					"item": [
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/084e0878-d5fb-4a46-beb5-1ce942e17746",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"084e0878-d5fb-4a46-beb5-1ce942e17746"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"item": [
+						{
+							"name": "Add User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullName\": \"Developer Koller\",\n    \"email\": \"wkoller25@gmail.com\",\n    \"password\": \"123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"item": [
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"1234567\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/df561fd1-6f31-4384-8f17-d0fc301339b0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"df561fd1-6f31-4384-8f17-d0fc301339b0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Load All Users",
+					"item": [
+						{
+							"name": "Load All Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Auth Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json();",
+											"pm.environment.set(\"token\", res.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"wkoller25@gmail.com\",\n  \"password\": \"123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/auth/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/health",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
