@@ -16,7 +16,7 @@ export class LoadAllCategoriesService {
     const categories = await this.loadAllCategoriesRepository.loadAll(
       filterCategoryDto,
     );
-    if (!categories) {
+    if (categories.result?.length === 0) {
       throw new NotFoundException('No records found.');
     }
     return categories;

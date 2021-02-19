@@ -16,7 +16,7 @@ export class LoadAllStylesService {
     const styles = await this.loadAllStylesRepository.loadAllStyles(
       filterStyleDto,
     );
-    if (!styles.result) {
+    if (styles.result?.length === 0) {
       throw new NotFoundException('No record found.');
     }
     return styles;
