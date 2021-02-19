@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from '@/app/app.module';
 import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
@@ -6,12 +6,17 @@ import * as rateLimit from 'express-rate-limit';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ModelNotFoundException } from '@/common/filters/model-not-found.exception.filter';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { TransformInterceptor } from '@/common/interceptors/transform.interceptor';
+import { HttpExceptionFilter } from '@/common/exceptions/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const logger = new Logger('Main');
-  app.useGlobalInterceptors(new LoggingInterceptor());
-  app.useGlobalFilters(new ModelNotFoundException());
+  app.useGlobalInterceptors(
+    new LoggingInterceptor(),
+    new TransformInterceptor(),
+  );
+  app.useGlobalFilters(new ModelNotFoundException(), new HttpExceptionFilter());
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.setGlobalPrefix('api');
   app.use(
