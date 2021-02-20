@@ -9,6 +9,8 @@ import { AuthModule } from '@/auth/auth.module';
 import { HealthModule } from '@/health/health.module';
 import { HealthCheckController } from '@/health/controllers/health-check/health-check.controller';
 import { TerminusModule } from '@nestjs/terminus';
+import { MorganInterceptor, MorganModule } from 'nest-morgan';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -22,6 +24,13 @@ import { TerminusModule } from '@nestjs/terminus';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    MorganModule.forRoot(),
+  ],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: MorganInterceptor('dev'),
+    },
   ],
   controllers: [HealthCheckController],
 })
