@@ -17,6 +17,7 @@ import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-use
 import { LoadAllUsersController } from '@/user/controllers/load-all-users/load-all-ussers.controller';
 import { LoadUserByIdService } from '@/user/services/load-user-by-id/load-user-by-id.service';
 import { LoadUserService } from '@/user/services/load-user/load-user.service';
+import { DeleteUserRepository } from '@/user/repositories/delete-user/delete-user.repository';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { LoadUserService } from '@/user/services/load-user/load-user.service';
       LoadUserByIdRepository,
       LoadUserByEmailRepository,
       LoadAllUsersRepository,
+      DeleteUserRepository,
     ]),
   ],
   providers: [
