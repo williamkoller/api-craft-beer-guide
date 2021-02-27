@@ -1,5 +1,5 @@
 import { Category } from '@/entities/category.entity';
-import { Module } from '@nestjs/common';
+import { CacheModule, forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoadAllCategoriesRepository } from '@/category/repositories/load-all-categories/load-all-categories.repository';
 import { LoadAllCategoriesService } from '@/category/services/load-all-categories/load-all-categories.service';
@@ -32,6 +32,12 @@ import { DeleteCategoryController } from '@/category/controllers/delete-category
       UpdateCategoryRepository,
       DeleteCategoryRepository,
     ]),
+    forwardRef(() =>
+      CacheModule.register({
+        ttl: Number(process.env.CACHE_TTL),
+        max: Number(process.env.CACHE_MAX),
+      }),
+    ),
   ],
   providers: [
     LoadAllCategoriesService,

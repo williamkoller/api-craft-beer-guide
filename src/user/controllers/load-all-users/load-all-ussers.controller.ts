@@ -1,10 +1,16 @@
 import { User } from '@/entities/user.entity';
 import { LoadAllUsersService } from '@/user/services/load-all-users/load-all-users.service';
-import { Controller, Get } from '@nestjs/common';
+import {
+  CacheInterceptor,
+  Controller,
+  Get,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('user')
 @Controller('users')
+@UseInterceptors(CacheInterceptor)
 export class LoadAllUsersController {
   constructor(private readonly loadAllUsersService: LoadAllUsersService) {}
 

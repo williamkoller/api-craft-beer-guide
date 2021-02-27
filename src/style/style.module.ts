@@ -1,5 +1,5 @@
 import { Style } from '@/entities/style.entity';
-import { forwardRef, Module } from '@nestjs/common';
+import { CacheModule, forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AddStyleRepository } from '@/style/repositories/add-style/add-style.repository';
 import { Category } from '@/entities/category.entity';
@@ -36,6 +36,12 @@ import { DeleteStyleController } from '@/style/controllers/delete-style/delete-s
       DeleteStyleRepository,
     ]),
     forwardRef(() => CategoryModule),
+    forwardRef(() =>
+      CacheModule.register({
+        ttl: Number(process.env.CACHE_TTL),
+        max: Number(process.env.CACHE_MAX),
+      }),
+    ),
   ],
   providers: [
     AddStyleService,

@@ -1,5 +1,5 @@
 import { User } from '@/entities/user.entity';
-import { Module } from '@nestjs/common';
+import { CacheModule, forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AddUserRepository } from '@/user/repositories/add-user/add-user.repository';
 import { AddUserService } from '@/user/services/add-user/add-user.service';
@@ -30,6 +30,12 @@ import { DeleteUserController } from '@/user/controllers/delete-user/delete-user
       LoadAllUsersRepository,
       DeleteUserRepository,
     ]),
+    forwardRef(() =>
+      CacheModule.register({
+        ttl: Number(process.env.CACHE_TTL),
+        max: Number(process.env.CACHE_MAX),
+      }),
+    ),
   ],
   providers: [
     AddUserService,
